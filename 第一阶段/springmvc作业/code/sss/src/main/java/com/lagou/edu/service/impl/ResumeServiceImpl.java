@@ -1,0 +1,45 @@
+package com.lagou.edu.service.impl;
+
+import com.lagou.edu.dao.ResumeDao;
+import com.lagou.edu.pojo.Resume;
+import com.lagou.edu.service.ResumeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@Transactional
+public class ResumeServiceImpl implements ResumeService {
+
+    @Autowired
+    private ResumeDao resumeDao;
+
+    @Override
+    public List<Resume> queryResumeList() {
+        return resumeDao.findAll();
+    }
+
+    @Override
+    public Resume queryById(Long id) {
+        Optional<Resume> byIdResume = resumeDao.findById(id);
+        return byIdResume.get();
+    }
+
+    @Override
+    public void saveResume(Resume resume) {
+        resumeDao.save(resume);
+    }
+
+    @Override
+    public void deleteResume(Long id) {
+        resumeDao.deleteById(id);
+    }
+
+    @Override
+    public void addResume(Resume resume) {
+        resumeDao.save(resume);
+    }
+}
