@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<server>
+    <services>
+        <connector port="8080"></connector>
+        <engine>
+            <host name="localhost" appBase="E:\IDEA-code\Minicat\webapps"></host>
+        </engine>
+    </services>
+</server>
